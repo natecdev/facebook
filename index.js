@@ -12,7 +12,18 @@ app.use(cookieParser())
 
 
 
-var users = []
+var users = [
+    {
+        'username': 'anhtoi',
+        'password': 'toi123',
+        'name': 'Nguyen Anh Toi'
+    },
+    {
+        'username': 'anhtuan',
+        'password': '123tuan',
+        'name': 'Nguyen Anh Tuan'
+    }
+]
 var session_cookies = []
 
 const login = (user, pass) => {
