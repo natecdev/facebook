@@ -12,18 +12,7 @@ app.use(cookieParser())
 
 
 
-var users = [
-    {
-        'username': 'anhtoi',
-        'password': 'toi123',
-        'name': 'Nguyen Anh Toi'
-    },
-    {
-        'username': 'anhtuan',
-        'password': '123tuan',
-        'name': 'Nguyen Anh Tuan'
-    }
-]
+var users = []
 var session_cookies = []
 
 const login = (user, pass) => {
@@ -91,14 +80,14 @@ app.get('/register',(req,res) => {
 
 app.post('/register', (req, res) =>{
     usern = req.body.user.trim()
-    var letters = /^[A-Za-z]+$/;
+    var letters = /^[A-Za-z0-9]+$/;
     if(!usern.match(letters)){
         return res.send('Thong tin khong hop le')
     }
     check = users.find( (e) => {
         return e.username == usern 
     })
-    if(check != null) return res.send('tai khoan da ton tai')
+    if(check != null) return res.send('Tai khoan da ton tai')
     register(req.body.user, req.body.pass, req.body.name)
     
     res.send('Thanh cong')
